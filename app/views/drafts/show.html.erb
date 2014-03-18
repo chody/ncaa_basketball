@@ -1,0 +1,9 @@
+<%= render "layouts/header" %>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<%= form_for :team, :url => teams_draft_path do |f| %>
+		<%= f.label :id, "Avaialable Teams" %>
+		<%= select("team", "id", Team.all.where("owner_id IS NULL").collect {|p| [ p.name, p.id ] }, {include_blank: 'None'}) %>
+	<% end %>
+</div>
+<div class="col-md-2"></div>
